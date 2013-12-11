@@ -12,7 +12,14 @@
         android:id="@id/step_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/horizontal_line" />
+        android:layout_above="@+id/indicator" />
+
+	<com.viewpagerindicator.LinePageIndicator
+		android:id="@+id/indicator"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+	    android:layout_above="@+id/horizontal_line"
+		android:padding="5dip" />
 
     <View
         android:id="@+id/horizontal_line"
