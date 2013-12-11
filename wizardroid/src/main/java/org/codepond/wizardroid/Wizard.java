@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.ViewGroup;
 
+import com.viewpagerindicator.LinePageIndicator;
+
 import org.codepond.wizardroid.infrastructure.Bus;
 import org.codepond.wizardroid.infrastructure.Disposable;
 import org.codepond.wizardroid.infrastructure.Subscriber;
@@ -42,6 +44,7 @@ public class Wizard implements Disposable, Subscriber {
     private final ContextManager contextManager;
     private final WizardCallbacks callbacks;
     private final ViewPager mPager;
+    private final LinePageIndicator mLinePageIndicator;
 
     private boolean fingerSlide;
 
@@ -61,11 +64,13 @@ public class Wizard implements Disposable, Subscriber {
         this.contextManager = contextManager;
         this.callbacks = callbacks;
         this.mPager = (ViewPager) activity.findViewById(R.id.step_container);
+        this.mLinePageIndicator = (LinePageIndicator) activity.findViewById(R.id.indicator);
         if (mPager == null) {
             throw new RuntimeException("Cannot initialize Wizard. View with ID: step_container not found!" +
                     " The hosting Activity/Fragment must have a ViewPager in its layout with ID: step_container");
         }
         mPager.setAdapter(new WizardPagerAdapter(activity.getSupportFragmentManager()));
+        mLinePageIndicator.setViewPager(mPager);
 
         //Implementation of OnPageChangeListener to handle wizard control via user finger slides
         mPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -104,6 +109,7 @@ public class Wizard implements Disposable, Subscriber {
             public void onPageSelected(int position) {
                 //Signal that the page is now "selected"
                 consumedPageSelectedEvent = true;
+                mLinePageIndicator.setCurrentItem(position);
             }
 
             @Override
