@@ -1,5 +1,11 @@
+Screenshot
+---
+![screenshot](https://raw.github.com/denny0223/WizarDroid/master/screenshot.png)
+
 Overview
 --------
+
+This project frok from [WizarDroid](https://github.com/Nimrodda/WizarDroid), add indicator use library [Android-ViewPagerIndicator](https://github.com/JakeWharton/Android-ViewPagerIndicator).
 
 WizarDroid is a lightweight Android library, developed by CodePond.org, that addresses a feature that Android is surprisingly missing, Wizards. It is built on top of Android's ViewPager to enable slide animation and touch functionality.
 Implementation is done mainly by extending __BasicWizardLayout__ class.
@@ -29,6 +35,8 @@ Build and Documentation
 -----------------------
 
 For more information refer to the [Wiki pages on github](https://github.com/Nimrodda/WizarDroid/wiki) or check out the bundled sample project.
+
+[Android-ViewPagerIndicator readme](https://github.com/JakeWharton/Android-ViewPagerIndicator/blob/master/README.md).
 
 Contribute
 ----------
